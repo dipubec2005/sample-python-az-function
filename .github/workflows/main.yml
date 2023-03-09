@@ -58,7 +58,7 @@ jobs:
       uses: Azure/functions-action@v1
       id: fa
       with:
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        app-name: ${{ vars.AZURE_WEBAPP_NAME }}
         package: .       
         scm-do-build-during-deployment: true
         enable-oryx-build: true
