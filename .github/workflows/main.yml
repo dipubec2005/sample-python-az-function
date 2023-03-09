@@ -53,17 +53,20 @@ jobs:
       with:
         name: app
         
-    # Deploy to Azure Web apps
+    # Deploy to Azure Web apps    
     - name: 'Run Azure webapp deploy action using spn'
-      uses: azure/webapps-deploy@v2
-      with: 
-        app-name: ${{ vars.AZURE_WEBAPP_NAME }} 
-        package: .
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: .       
+        scm-do-build-during-deployment: true
+        enable-oryx-build: true
         
-#     - uses: azure/appservice-settings@v1
-#       with:
-#         app-name: ${{ vars.AZURE_WEBAPP_NAME }}
-#         app-settings-json: '${{ vars.APP_SETTINGS }}' 
+#       uses: azure/webapps-deploy@v2
+#       with: 
+#         app-name: ${{ vars.AZURE_WEBAPP_NAME }} 
+#         package: .   
       
     - name: logout
       run: |
