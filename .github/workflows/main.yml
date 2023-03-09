@@ -24,9 +24,11 @@ jobs:
         python-version: '${{ env.PYTHON_VERSION }}'
         
     - name: Install dependencies
-      run: |         
+      run: |
+         pushd './${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
          python -m pip install --upgrade pip
-         pip install -r requirements.txt --target=".python_packages/lib/site_packages"
+         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+         popd
         
     - name: Upload artifacts for deployment
       uses: actions/upload-artifact@v2
