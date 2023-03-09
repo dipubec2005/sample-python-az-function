@@ -1,6 +1,5 @@
 import azure.functions as func
 import logging
-from databricks import sql
 from azure.servicebus import ServiceBusClient, ServiceBusMessage
 import os
 
