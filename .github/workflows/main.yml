@@ -1,4 +1,4 @@
-name: 'Manage access azure function build and deploy'
+name: 'build and deploy python az function'
 
 on:
   workflow_dispatch:
